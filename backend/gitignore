@@ -24,10 +24,11 @@ dist-ssr
 *.sw?
 
 .env
-node_modules
+node_modules/
 
 build/
 dist/
 
 .vscode/
 .idea/
+upload/images/
