@@ -15,9 +15,11 @@ const LoginSignup = () => {
   }
 
   const login=async()=>{
+    console.log("LOGIN CLICKED");
+    console.log("API URL =", process.env.REACT_APP_API_URL);
     console.log("Login Function Executed",formData);
      let responseData;
-    await fetch('http://localhost:4000/login',{
+    await fetch(`${process.env.REACT_APP_API_URL}/login`,{
       method:'POST',
       headers:{
         Accept:'application/form-data',
@@ -33,6 +35,7 @@ const LoginSignup = () => {
     else{
       alert(responseData.errors)
     }
+    
 
          //signup
   }
