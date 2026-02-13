@@ -17,12 +17,12 @@ const ShopContextProvider = (props)  =>{
     const[cartItems,setCartItems]=useState(getDefaultCart());
 
     useEffect(()=>{
-         fetch('http://localhost:4000/allproducts')
+         fetch(`${process.env.REACT_APP_API_URL}/allproducts`)
          .then((response)=>response.json())
          .then((data)=>setAll_Product(data))
 
          if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/getcart',{
+            fetch(`${process.env.REACT_APP_API_URL}/getcart`,{
                  method:'POST',
                  headers:{
                     Accept:'application/form-data',
@@ -42,7 +42,7 @@ const ShopContextProvider = (props)  =>{
     const addToCart=(itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/addtocart',{
+            fetch(`${process.env.REACT_APP_API_URL}/addtocart`,{
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
@@ -59,7 +59,7 @@ const ShopContextProvider = (props)  =>{
     const removeFromCart=(itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/removefromcart',{
+            fetch(`${process.env.REACT_APP_API_URL}/removefromcart`,{
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
