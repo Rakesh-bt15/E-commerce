@@ -15,8 +15,7 @@ const LoginSignup = () => {
   }
 
   const login=async()=>{
-    console.log("LOGIN CLICKED");
-    console.log("API URL =", process.env.REACT_APP_API_URL);
+    
     console.log("Login Function Executed",formData);
      let responseData;
     await fetch(`${process.env.REACT_APP_API_URL}/login`,{
